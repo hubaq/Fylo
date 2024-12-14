@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  background-color: hsl(218, 28%, 13%);
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header nav,
+a {
+  font-family: 'Raleway', sans-serif;
+}
+
+.bgMobile {
+  background-image: url('bg-curvy-mobile.svg');
+}
+.bgDesktop {
+  background-image: url('bg-curvy-desktop.svg');
+}
+
+.hero-para,
+.call-to-action {
+  opacity: 0;
+  transform: translateY(50px);
+}
