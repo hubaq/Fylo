@@ -12,7 +12,6 @@ body {
   font-size: 14px;
   background-color: hsl(218, 28%, 13%);
   font-family: 'Open Sans', sans-serif;
-  overflow-x: hidden;
 }
 
 h1,
@@ -29,6 +28,7 @@ a {
 .bgMobile {
   background-image: url('bg-curvy-mobile.svg');
 }
+
 .bgDesktop {
   background-image: url('bg-curvy-desktop.svg');
 }

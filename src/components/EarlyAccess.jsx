@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function EarlyAccess() {
   const [email, setEmail] = useState('');
@@ -28,15 +29,44 @@ function EarlyAccess() {
     }
   }
 
+  // Framer Motion Variants
+  const containerVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+  };
+
+  const inputVariant = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+  };
+
+  const buttonVariant = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut', delay: 0.2 } },
+  };
+
   return (
-    <div className='bg-introDark w-[90%] md:absolute  top-[21rem] rounded-md md:w-[60%] mx-auto flex flex-col gap-8 items-center px-4 py-4 md:py-12'>
+    <motion.div
+      className='bg-introDark w-[90%] md:absolute top-[21rem] rounded-md md:w-[60%] mx-auto flex flex-col gap-8 items-center px-4 py-4 md:py-12'
+      variants={containerVariant}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, amount: 0.5 }}
+    >
       <h1 className='text-White text-xl'>Get early access today</h1>
       <p className='text-White text-sm text-center max-w-[280px] md:max-w-[620px]'>
         It only takes a minute to sign up, and our free starter tier is extremely generous. If you
         have any questions, our support team would be happy to help you.
       </p>
       <div className='w-full flex items-start gap-8 md:gap-4 justify-center flex-col md:flex-row'>
-        <div className='flex flex-col items-start gap-1 w-full md:w-auto relative'>
+        <motion.div
+          className='flex flex-col items-start gap-1 w-full md:w-auto relative'
+          variants={inputVariant}
+        >
           <input
             type='email'
             className='md:w-96 w-full py-3 px-4 rounded-3xl outline-none border-0'
@@ -49,16 +79,17 @@ function EarlyAccess() {
               {errorMessage}
             </p>
           )}
-        </div>
-        <a
+        </motion.div>
+        <motion.a
           href='#'
           className='bg-cyan hover:opacity-90 text-White font-semibold py-3 text-center md:w-48 w-full rounded-3xl px-7'
           onClick={e => getStarted(e)}
+          variants={buttonVariant}
         >
           Get Started For Free
-        </a>
+        </motion.a>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
